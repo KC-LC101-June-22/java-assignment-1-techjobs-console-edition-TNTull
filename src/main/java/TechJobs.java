@@ -1,5 +1,7 @@
 //Teresa Tull worked on this on 9-16-2022
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -123,8 +125,10 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        if (someJobs.size() >= 1) {
-
+        if (someJobs.size() == 0) {
+            String results = "No Results";
+            System.out.println(results.replaceAll("\r\n?", "\n"));
+        } else{
             for (HashMap<String, String> someJob : someJobs) {
                 System.out.println("\n*****");
                 for (Map.Entry<String, String> work : someJob.entrySet()) {
@@ -132,8 +136,8 @@ public class TechJobs {
                 }
                 System.out.println("*****");
             }
-        } else{
-            System.out.println("No Results");
+
+
         }
     }
 }
