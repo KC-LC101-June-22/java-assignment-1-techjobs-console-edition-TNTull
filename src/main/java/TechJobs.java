@@ -1,7 +1,10 @@
+//Teresa Tull worked on this on 9-16-2022
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
 
 /**
  * Created by LaunchCode
@@ -14,10 +17,10 @@ public class TechJobs {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
-        columnChoices.put("core competency", "Skill");
+        columnChoices.put("position type", "Position Type");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
-        columnChoices.put("position type", "Position Type");
+        columnChoices.put("core competency", "Skill");
         columnChoices.put("all", "All");
 
         // Top-level menu options
@@ -74,7 +77,7 @@ public class TechJobs {
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         int choiceIdx = -1;
-        Boolean validChoice = false;
+        boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
         // Put the choices in an ordered structure so we can
@@ -120,6 +123,17 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() >= 1) {
+
+            for (HashMap<String, String> someJob : someJobs) {
+                System.out.println("\n*****");
+                for (Map.Entry<String, String> work : someJob.entrySet()) {
+                    System.out.println(work.getKey() + ": " + work.getValue());
+                }
+                System.out.println("*****");
+            }
+        } else{
+            System.out.println("No Results");
+        }
     }
 }
